@@ -19,7 +19,6 @@ set smartcase
 set path+=**
 
 " appearance
-set termguicolors
 set showmode
 set showcmd
 set signcolumn=yes
@@ -39,46 +38,23 @@ set belloff=all
 set noerrorbells
 set novisualbell
 
-" map ansi qwerty and йцукен
-set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
-
 " vim plug plugins
 call plug#begin('~/.config/nvim/plugged/')
-  Plug 'nanotech/jellybeans.vim'
-  Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp'] }
-  Plug 'pboettch/vim-cmake-syntax', { 'for': 'cmake' }
-  Plug 'Chiel92/vim-autoformat', { 'for': ['cmake', 'qml', 'python', 'json', 'pascal'] }
-  Plug 'luochen1990/rainbow', { 'for': ['c', 'cpp'] }
   Plug 'ycm-core/YouCompleteMe'
-  Plug 'dense-analysis/ale'
-  Plug 'rhysd/vim-clang-format', { 'for': ['c', 'cpp'] }
-  Plug 'peterhoeg/vim-qml', { 'for': 'qml' }
-  Plug 'kergoth/vim-bitbake',{ 'for': 'bitbake' }
 call plug#end()
 
-" jellybeans
-colorscheme jellybeans
-set background=dark
-let g:jellybeans_use_term_italics = 0
-let g:jellybeans_use_gui_italics = 0
-
-" vim cpp modern
-let c_no_curly_error = 1
-let g:cpp_named_requirements_highlight = 1
-
-" rainbow
-let g:rainbow_active = 1
-
-" ultisnips
-
-" you complete me
+" ycm
 let g:ycm_autoclose_preview_window_after_completion = 1
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd-12")
 
-" ale
-let g:ale_completion_enabled = 0
-
-" clang format
-autocmd FileType c,cpp ClangFormatAutoEnable
+function FormatFile()
+  let l:lines="all"
+  py3f ~/llvm-project/clang/tools/clang-format/clang-format.py
+endfunction
+autocmd BufWritePre *.h,*.hpp,*.c,*.cc,*.cpp call FormatFile()
 
 " filetype detection
 filetype on
@@ -88,3 +64,6 @@ filetype indent on
 " syntax highlighting
 syntax enable
 syntax on
+
+" trailing spaces
+:match Error /\s\+$/
