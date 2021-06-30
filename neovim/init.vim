@@ -40,8 +40,13 @@ set novisualbell
 
 " vim plug plugins
 call plug#begin('~/.config/nvim/plugged/')
+  Plug 'dense-analysis/ale'
   Plug 'ycm-core/YouCompleteMe'
 call plug#end()
+
+" ale
+let g:ale_linters = {'cpp': ['clangtidy', 'cppcheck', 'cpplint', 'flawfinder']}
+let g:ale_linters = {'c': ['clangtidy', 'cppcheck', 'cpplint', 'flawfinder']}
 
 " ycm
 let g:ycm_autoclose_preview_window_after_completion = 1
