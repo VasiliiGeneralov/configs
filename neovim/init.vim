@@ -40,9 +40,14 @@ set novisualbell
 
 " vim plug plugins
 call plug#begin('~/.config/nvim/plugged/')
+  Plug 'bfrg/vim-cpp-modern'
   Plug 'dense-analysis/ale'
   Plug 'ycm-core/YouCompleteMe'
 call plug#end()
+
+" vim cpp modern
+let g:cpp_attributes_highlight = 1
+let g:cpp_member_highlight = 1
 
 " ale
 let g:ale_linters = {'cpp': ['clangtidy', 'cppcheck', 'cpplint', 'flawfinder']}
