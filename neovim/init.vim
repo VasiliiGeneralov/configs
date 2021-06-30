@@ -19,6 +19,7 @@ set smartcase
 set path+=**
 
 " appearance
+set termguicolors
 set showmode
 set showcmd
 set signcolumn=yes
@@ -40,10 +41,17 @@ set novisualbell
 
 " vim plug plugins
 call plug#begin('~/.config/nvim/plugged/')
+  Plug 'nanotech/jellybeans.vim'
   Plug 'bfrg/vim-cpp-modern'
   Plug 'dense-analysis/ale'
   Plug 'ycm-core/YouCompleteMe'
 call plug#end()
+
+" jellybeans
+colorscheme jellybeans
+let g:jellybeans_use_term_italics = 0
+let g:jellybeans_use_gui_italics = 0
+let g:jellybeans_overrides = {'background': { 'guibg': '000000' }}
 
 " vim cpp modern
 let g:cpp_attributes_highlight = 1
