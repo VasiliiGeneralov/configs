@@ -9,3 +9,5 @@ alias pvim='$(which nvim) --clean --noplugin -u NONE --'
 # completion
 source $HOME/alacritty/extra/completions/alacritty.bash
 source $HOME/tmux-bash-completion/completions/tmux
+source $HOME/.pip_completion.bash
+source $HOME/conan-bashcompletion/conan-completion
