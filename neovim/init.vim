@@ -85,3 +85,7 @@ syntax on
 
 " trailing spaces
 :match Error /\s\+$/
+
+" folds
+au BufWinLeave * mkview
+au BufWinEnter * silent! loadview
