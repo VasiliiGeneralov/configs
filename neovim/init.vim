@@ -89,5 +89,5 @@ syntax on
 :match Error /\s\+$/
 
 " folds
-au BufWinLeave * mkview
-au BufWinEnter * silent! loadview
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent! loadview
