@@ -60,6 +60,8 @@ let g:cpp_member_highlight = 1
 " ale
 let g:ale_linters = {'cpp': ['clangtidy', 'cppcheck', 'cpplint', 'flawfinder']}
 let g:ale_linters = {'c': ['clangtidy', 'cppcheck', 'cpplint', 'flawfinder']}
+let g:ale_fixers = {'cmake': ['cmakeformat']}
+autocmd FileType cmake autocmd BufWritePre * :ALEFix
 
 " ycm
 let g:ycm_autoclose_preview_window_after_insertion = 1
