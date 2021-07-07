@@ -60,8 +60,8 @@ let g:cpp_member_highlight = 1
 " ale
 let g:ale_cpp_clangtidy_executable = 'clang-tidy-12'
 let g:ale_c_clangtidy_executable = 'clang-tidy-12'
-let g:ale_cpp_clangtidy_checks = ['*']
-let g:ale_c_clangtidy_checks = ['*']
+let g:ale_cpp_clangtidy_checks = ['*', '-llvmlibc-callee-namespace', '-llvmlibc-restrict-system-libc-headers', '-llvmlibc-implementation-in-namespace']
+let g:ale_c_clangtidy_checks = ['*', '-llvmlibc-callee-namespace', '-llvmlibc-restrict-system-libc-headers', '-llvmlibc-implementation-in-namespace']
 let g:ale_cpp_cppcheck_options = '--enable=all'
 let g:ale_c_cppcheck_options = '--enable=all'
 let g:ale_cpp_flawfinder_options = '--neverignore'
