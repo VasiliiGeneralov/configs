@@ -58,23 +58,34 @@ let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
 
 " ale
-let g:ale_linters = {'cpp': ['clangtidy', 'cppcheck', 'cpplint', 'flawfinder']}
-let g:ale_linters = {'c': ['clangtidy', 'cppcheck', 'cpplint', 'flawfinder']}
-let g:ale_fixers = {'cmake': ['cmakeformat']}
+let g:ale_cpp_clangtidy_executable = 'clang-tidy-12'
+let g:ale_c_clangtidy_executable = 'clang-tidy-12'
+let g:ale_cpp_clangtidy_checks = ['*']
+let g:ale_c_clangtidy_checks = ['*']
+let g:ale_cpp_cppcheck_options = '--enable=all'
+let g:ale_c_cppcheck_options = '--enable=all'
+let g:ale_cpp_flawfinder_options = '--neverignore'
+let g:ale_c_flawfinder_options = '--neverignore'
+let g:ale_cpp_flawfinder_minlevel = 0
+let g:ale_c_flawfinder_minlevel = 0
+let g:ale_linters = {
+      \'cpp': ['clangtidy', 'cppcheck', 'cpplint', 'flawfinder', 'clazy'],
+      \'c': ['clangtidy', 'cppcheck', 'cpplint', 'flawfinder', 'clazy'],
+      \}
+let g:ale_c_clangformat_executable = 'clang-format-12'
+let g:ale_fixers = {
+      \'cpp': ['clang-format'],
+      \'c': ['clang-format'],
+      \'cmake': ['cmakeformat'],
+      \}
+autocmd FileType cpp autocmd BufWritePre * :ALEFix
+autocmd FileType c autocmd BufWritePre * :ALEFix
 autocmd FileType cmake autocmd BufWritePre * :ALEFix
 
 " ycm
 let g:ycm_autoclose_preview_window_after_insertion = 1
-" Let clangd fully control code completion
 let g:ycm_clangd_uses_ycmd_caching = 0
-" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 let g:ycm_clangd_binary_path = exepath("clangd-12")
-
-function FormatFile()
-  let l:lines="all"
-  py3f ~/llvm-project/clang/tools/clang-format/clang-format.py
-endfunction
-autocmd BufWritePre *.h,*.hpp,*.c,*.cc,*.cpp call FormatFile()
 
 " filetype detection
 filetype on
