@@ -4,7 +4,7 @@ HISTFILESIZE=-1
 # alias
 alias h='history'
 alias vim='$(which nvim)'
-alias pvim='$(which nvim) --clean --noplugin -u NONE --'
+alias pvim='vim -u NONE'
 
 # completion
 source $HOME/alacritty/extra/completions/alacritty.bash
