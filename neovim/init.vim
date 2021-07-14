@@ -60,6 +60,9 @@ let g:cpp_member_highlight = 1
 " ale
 let g:ale_cpp_clangtidy_executable = 'clang-tidy-12'
 let g:ale_c_clangtidy_executable = 'clang-tidy-12'
+let g:ale_cpp_cc_executable = 'clang++-12'
+let g:ale_c_cc_executable = 'clang-12'
+let g:ale_cpp_clangcheck_executable = 'clang-check-12'
 let clangtidy_checks = [
       \'*',
       \'-llvmlibc-callee-namespace',
@@ -68,6 +71,8 @@ let clangtidy_checks = [
       \'-readability-convert-member-functions-to-static',
       \'-modernize-use-trailing-return-type',
       \]
+let g:ale_cpp_cc_options = '-std=c++17 -Wall -Wextra'
+let g:ale_c_cc_options = '-std=c18 -Wall -Wextra'
 let g:ale_cpp_clangtidy_checks = clangtidy_checks
 let g:ale_c_clangtidy_checks = clangtidy_checks
 let g:ale_cpp_cppcheck_options = '--enable=all'
@@ -77,8 +82,8 @@ let g:ale_c_flawfinder_options = '--neverignore'
 let g:ale_cpp_flawfinder_minlevel = 0
 let g:ale_c_flawfinder_minlevel = 0
 let g:ale_linters = {
-      \'cpp': ['clangtidy', 'cppcheck', 'cpplint', 'flawfinder', 'clazy'],
-      \'c': ['clangtidy', 'cppcheck', 'cpplint', 'flawfinder', 'clazy'],
+      \'cpp': ['cc', 'clangtidy', 'clangcheck', 'cppcheck', 'cpplint', 'flawfinder', 'clazy'],
+      \'c': ['cc', 'clangtidy', 'cppcheck', 'cpplint', 'flawfinder', 'clazy'],
       \}
 let g:ale_c_clangformat_executable = 'clang-format-12'
 let g:ale_fixers = {
