@@ -45,6 +45,7 @@ call plug#begin('~/.config/nvim/plugged/')
   Plug 'bfrg/vim-cpp-modern'
   Plug 'dense-analysis/ale'
   Plug 'ycm-core/YouCompleteMe'
+  Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " jellybeans
@@ -90,10 +91,13 @@ let g:ale_fixers = {
       \'cpp': ['clang-format'],
       \'c': ['clang-format'],
       \'cmake': ['cmakeformat'],
+      \'rust': ['rustfmt']
       \}
+let g:ale_rust_rustfmt_options = '--config tab_spaces=2'
 autocmd FileType cpp autocmd BufWritePre * :ALEFix
 autocmd FileType c autocmd BufWritePre * :ALEFix
 autocmd FileType cmake autocmd BufWritePre * :ALEFix
+autocmd FileType rust autocmd BufWritePre * :ALEFix
 
 " ycm
 let g:ycm_autoclose_preview_window_after_insertion = 1
