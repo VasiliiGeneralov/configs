@@ -72,8 +72,8 @@ let clangtidy_checks = [
       \'-readability-convert-member-functions-to-static',
       \'-modernize-use-trailing-return-type',
       \]
-let g:ale_cpp_cc_options = '-std=c++17 -Wall -Wextra -Wunreachable-code'
-let g:ale_c_cc_options = '-std=c18 -Wall -Wextra -Wunreachable-code'
+let g:ale_cpp_cc_options = '-std=c++17 -Wall -Wextra -Wpedantic -Wunreachable-code'
+let g:ale_c_cc_options = '-std=c18 -Wall -Wextra -Wpedantic -Wunreachable-code'
 let g:ale_cpp_clangtidy_checks = clangtidy_checks
 let g:ale_c_clangtidy_checks = clangtidy_checks
 let g:ale_cpp_cppcheck_options = '--enable=all'
