@@ -40,7 +40,7 @@ set noerrorbells
 set novisualbell
 
 " vim plug plugins
-call plug#begin('~/.config/nvim/plugged/')
+call plug#begin('~/.vim/plugged/')
   Plug 'nanotech/jellybeans.vim'
   Plug 'bfrg/vim-cpp-modern'
   Plug 'dense-analysis/ale'
@@ -71,6 +71,7 @@ let clangtidy_checks = [
       \'-llvmlibc-implementation-in-namespace',
       \'-readability-convert-member-functions-to-static',
       \'-modernize-use-trailing-return-type',
+      \'-fuchsia-default-arguments-calls'
       \]
 let g:ale_cpp_cc_options = '-std=c++17 -Wall -Wextra -Wpedantic -Wunreachable-code'
 let g:ale_c_cc_options = '-std=c18 -Wall -Wextra -Wpedantic -Wunreachable-code'
@@ -82,18 +83,19 @@ let g:ale_cpp_flawfinder_options = '--neverignore'
 let g:ale_c_flawfinder_options = '--neverignore'
 let g:ale_cpp_flawfinder_minlevel = 0
 let g:ale_c_flawfinder_minlevel = 0
+let g:ale_cpp_cpplint_options = '--linelength=120 --filter=+,-legal/copyright,-whitespace/comments'
 let g:ale_linters = {
       \'cpp': ['cc', 'clangtidy', 'clangcheck', 'cppcheck', 'cpplint', 'flawfinder', 'clazy'],
       \'c': ['cc', 'clangtidy', 'cppcheck', 'cpplint', 'flawfinder', 'clazy'],
       \}
 let g:ale_c_clangformat_executable = 'clang-format-12'
+let g:ale_rust_rustfmt_options = '--config tab_spaces=2'
 let g:ale_fixers = {
       \'cpp': ['clang-format'],
       \'c': ['clang-format'],
       \'cmake': ['cmakeformat'],
       \'rust': ['rustfmt']
       \}
-let g:ale_rust_rustfmt_options = '--config tab_spaces=2'
 autocmd FileType cpp autocmd BufWritePre * :ALEFix
 autocmd FileType c autocmd BufWritePre * :ALEFix
 autocmd FileType cmake autocmd BufWritePre * :ALEFix
