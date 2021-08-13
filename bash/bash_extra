@@ -3,11 +3,10 @@ HISTFILESIZE=-1
 
 # alias
 alias h='history'
-alias vim='$(which nvim)'
 alias pvim='vim -u NONE'
+alias rg='rg -j8'
 
 # completion
 source $HOME/alacritty/extra/completions/alacritty.bash
 source $HOME/tmux-bash-completion/completions/tmux
 source $HOME/.pip_completion.bash
-source $HOME/conan-bashcompletion/conan-completion
