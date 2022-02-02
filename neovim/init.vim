@@ -39,6 +39,9 @@ set belloff=all
 set noerrorbells
 set novisualbell
 
+" conceal
+set conceallevel=0
+
 " vim plug plugins
 call plug#begin('~/.vim/plugged/')
   Plug 'nanotech/jellybeans.vim'
@@ -46,6 +49,8 @@ call plug#begin('~/.vim/plugged/')
   Plug 'dense-analysis/ale'
   Plug 'ycm-core/YouCompleteMe'
   Plug 'rust-lang/rust.vim'
+  Plug 'Yggdroot/indentline', {'for': 'python'}
+  Plug 'arzg/vim-sh'
 call plug#end()
 
 " jellybeans
@@ -84,9 +89,12 @@ let g:ale_c_flawfinder_options = '--neverignore'
 let g:ale_cpp_flawfinder_minlevel = 0
 let g:ale_c_flawfinder_minlevel = 0
 let g:ale_cpp_cpplint_options = '--linelength=120 --filter=+,-legal/copyright,-whitespace/comments'
+let g:ale_python_flake8_options = '--max-line-length 120'
 let g:ale_linters = {
       \'cpp': ['cc', 'clangtidy', 'clangcheck', 'cppcheck', 'cpplint', 'flawfinder', 'clazy'],
       \'c': ['cc', 'clangtidy', 'cppcheck', 'cpplint', 'flawfinder', 'clazy'],
+      \'python': ['mypy', 'flake8'],
+      \'shell': ['shellcheck']
       \}
 let g:ale_c_clangformat_executable = 'clang-format-12'
 let g:ale_rust_rustfmt_options = '--config tab_spaces=2'
@@ -94,12 +102,17 @@ let g:ale_fixers = {
       \'cpp': ['clang-format'],
       \'c': ['clang-format'],
       \'cmake': ['cmakeformat'],
-      \'rust': ['rustfmt']
+      \'rust': ['rustfmt'],
+      \'python': ['black']
       \}
 autocmd FileType cpp autocmd BufWritePre * :ALEFix
 autocmd FileType c autocmd BufWritePre * :ALEFix
 autocmd FileType cmake autocmd BufWritePre * :ALEFix
 autocmd FileType rust autocmd BufWritePre * :ALEFix
+autocmd FileType python autocmd BufWritePre * :ALEFix
+
+" indentline
+let g:indentline_char = '│'
 
 " ycm
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -121,3 +134,6 @@ syntax on
 " folds
 autocmd BufWinLeave * mkview
 autocmd BufWinEnter * silent! loadview
+
+" line terminators
+autocmd BufWrite,BufNewFile * set fileformat=unix
