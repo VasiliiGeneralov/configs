@@ -58,6 +58,20 @@ vim.g.jellybeans_overrides = {
 	},
 }
 vim.cmd'colorscheme jellybeans'
+
+require'formatter'.setup {
+	filetype = {
+		cpp = {
+			function()
+				return {
+					exe = 'clang-format-12',
+					stdin = true,
+				}
+			end
+		},
+	},
+}
+
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 	use {
@@ -72,4 +86,5 @@ return require('packer').startup(function()
 		},
 	}
 	use 'nanotech/jellybeans.vim'
+	use 'mhartington/formatter.nvim'
 end)
