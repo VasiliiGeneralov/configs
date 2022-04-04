@@ -49,6 +49,15 @@ require'cmp'.setup {
 	},
 }
 
+vim.opt.termguicolors = true
+vim.g.jellybeans_use_term_italics = 0
+vim.g.jellybeans_use_gui_italics = 0
+vim.g.jellybeans_overrides = {
+	background = {
+		guibg = '000000',
+	},
+}
+vim.cmd'colorscheme jellybeans'
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 	use {
@@ -62,4 +71,5 @@ return require('packer').startup(function()
 			'hrsh7th/nvim-cmp'
 		},
 	}
+	use 'nanotech/jellybeans.vim'
 end)
