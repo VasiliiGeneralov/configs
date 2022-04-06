@@ -11,3 +11,20 @@ lspconfig.clangd.setup {
   },
   capabilities = capabilities,
 }
+
+lspconfig.pylsp.setup {
+  cmd = {
+    'pylsp',
+  },
+  pylsp = {
+    plugins = {
+      flake8 = {
+        enabled = true,
+      },
+      mypy = {
+        enabled = true,
+      },
+    },
+  },
+  capabilities = capabilities,
+}
