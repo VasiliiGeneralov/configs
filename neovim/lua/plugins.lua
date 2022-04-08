@@ -19,8 +19,4 @@ return require('packer').startup(function()
   use {
     'nanotech/jellybeans.vim',
   }
-  use {
-    'mhartington/formatter.nvim',
-    config = [[ require('configs.formatter') ]],
-  }
 end)
