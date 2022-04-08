@@ -34,6 +34,9 @@ lspconfig.pylsp.setup {
       mypy = {
         enabled = true,
       },
+      black = {
+        enabled = true,
+      },
     },
   },
   on_attach = on_attach,
