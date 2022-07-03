@@ -10,12 +10,12 @@ local opts = {
 }
 
 local on_attach = function(client, bufnr)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting({async = true})<CR>', opts)
 end
 
 lspconfig.clangd.setup {
   cmd = {
-    'clangd-12',
+    'clangd-14',
     '--clang-tidy',
   },
   on_attach = on_attach,
