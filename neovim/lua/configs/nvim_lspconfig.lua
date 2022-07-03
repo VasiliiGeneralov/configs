@@ -10,7 +10,7 @@ local opts = {
 }
 
 local on_attach = function(client, bufnr)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting({async = true})<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.format({async = true})<CR>', opts)
 end
 
 lspconfig.clangd.setup {
