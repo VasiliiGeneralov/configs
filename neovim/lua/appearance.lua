@@ -7,7 +7,6 @@ opt.showmode = true
 opt.signcolumn = 'yes'
 opt.cursorline = true
 opt.laststatus = 1
-opt.cmdheight = 0
 
 local g = vim.g
 
