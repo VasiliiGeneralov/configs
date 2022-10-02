@@ -22,3 +22,4 @@ local cmd = vim.cmd
 
 cmd'colorscheme jellybeans'
 cmd'match Error /\\s\\+$/'
+cmd'2match Error /[^\\u0000-\\u007F]/'
