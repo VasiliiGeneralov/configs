@@ -9,18 +9,8 @@ opt.cursorline = true
 opt.laststatus = 1
 opt.cmdheight = 0
 
-local g = vim.g
-
-g.jellybeans_use_term_italics = 0
-g.jellybeans_use_gui_italics = 0
-g.jellybeans_overrides = {
-  background = {
-    guibg = '000000',
-  },
-}
-
 local cmd = vim.cmd
 
-cmd'colorscheme jellybeans'
+cmd'colorscheme quiet'
 cmd'match Error /\\s\\+$/'
 cmd'2match Error /[^\\u0000-\\u007F]/'

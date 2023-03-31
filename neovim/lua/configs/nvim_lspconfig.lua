@@ -15,8 +15,10 @@ end
 
 lspconfig.clangd.setup {
   cmd = {
-    'clangd-14',
+    'clangd',
     '--clang-tidy',
+    '--background-index',
+    '-j=4',
   },
   on_attach = on_attach,
   capabilities = capabilities,
