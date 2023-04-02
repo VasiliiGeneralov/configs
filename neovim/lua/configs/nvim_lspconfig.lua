@@ -9,8 +9,14 @@ local opts = {
   silent=true,
 }
 
+navic = require('nvim-navic')
+
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.format({async = true})<CR>', opts)
+
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
+  end
 end
 
 lspconfig.clangd.setup {

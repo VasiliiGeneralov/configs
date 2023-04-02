@@ -13,4 +13,11 @@ return require('packer').startup(function()
     },
     config = [[ require('configs.cmp_nvim_lsp') ]],
   }
+  use {
+    'SmiteshP/nvim-navic',
+    requires = {
+      'neovim/nvim-lspconfig',
+    },
+    config = [[ require('configs.nvim_navic') ]],
+  }
 end)

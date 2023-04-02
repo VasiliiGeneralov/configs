@@ -14,3 +14,5 @@ local cmd = vim.cmd
 cmd'colorscheme quiet'
 cmd'match Error /\\s\\+$/'
 cmd'2match Error /[^\\u0000-\\u007F]/'
+
+opt.winbar = [[%{%v:lua.require('nvim-navic').get_location()%}]]

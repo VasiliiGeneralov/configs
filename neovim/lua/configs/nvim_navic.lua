@@ -1,0 +1,32 @@
+local navic = require('nvim-navic')
+
+navic.setup{
+  icons = {
+    Class         = 'class ',
+    Method        = 'method ',
+    Function      = 'func ',
+    Namespace     = 'namespace ',
+    Field         = 'field ',
+    Struct        = 'struct ',
+    Constructor   = '(c/d)tor ',
+--    File          = " ",
+--    Module        = " ",
+--    Package       = " ",
+--    Property      = " ",
+--    Enum          = "練",
+--    Interface     = "練",
+--    Variable      = " ",
+--    Constant      = " ",
+--    String        = " ",
+--    Number        = " ",
+--    Boolean       = "◩ ",
+--    Array         = " ",
+--    Object        = " ",
+--    Key           = " ",
+--    Null          = "ﳠ ",
+--    EnumMember    = " ",
+--    Event         = " ",
+--    Operator      = " ",
+--    TypeParameter = " ",
+  },
+}
