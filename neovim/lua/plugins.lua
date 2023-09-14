@@ -21,4 +21,8 @@ return require('packer').startup(function()
   use {
     'nvim-treesitter/nvim-treesitter-context',
   }
+  use {
+    use 'mfussenegger/nvim-lint',
+    config = [[ require('configs.nvim_lint') ]],
+  }
 end)
