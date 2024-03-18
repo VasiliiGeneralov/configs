@@ -78,8 +78,8 @@ autocmd User LspSetup call LspAddServer(lspServers)
 
 let g:mapleader = "\<Space>"
 nnoremap <silent> <Leader>e  :LspDiagCurrent<CR>
-nnoremap <silent>         [d :LspDiagNext<CR>
-nnoremap <silent>         ]d :LspDiagPrev<CR>
+nnoremap <silent>         [d :LspDiagPrev<CR>
+nnoremap <silent>         ]d :LspDiagNext<CR>
 nnoremap <silent> <Leader>f  :LspFormat<CR>
 nnoremap <silent>         gr :LspPeekReferences<CR>
 nnoremap <silent> <Leader>rn :LspRename<CR>
