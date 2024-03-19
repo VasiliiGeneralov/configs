@@ -131,7 +131,7 @@ return require('lazy').setup(
     {
       'mfussenegger/nvim-lint',
       config = function()
-        require('lint').linter_by_ft = {
+        require('lint').linters_by_ft = {
           cpp = {'cpplint'},
           sh = {'shellcheck'},
         }
