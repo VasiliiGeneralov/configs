@@ -77,7 +77,7 @@ autocmd User LspSetup call LspOptionsSet(lspOpts)
 let lspServers = [#{
   \ name: 'clang',
   \ filetype: ['c', 'cpp'],
-  \ path: '/usr/sbin/clangd',
+  \ path: 'clangd',
   \ args: ['--background-index', '--clang-tidy', '-j', '4']
   \ }]
 autocmd User LspSetup call LspAddServer(lspServers)
