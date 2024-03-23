@@ -62,6 +62,9 @@ set number
 set relativenumber
 set signcolumn=number
 
+set background=dark
+colorscheme quiet
+
 inoremap <expr>   <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
