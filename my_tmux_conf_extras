@@ -6,6 +6,6 @@ set -g mode-keys vi
 
 # neovim checkhealth
 set-option -g  default-terminal   'tmux-256color'
-set        -ag terminal-overrides ',xterm-256color:RGB'
+set        -ag terminal-overrides ',xterm-256color:RGB,Tc'
 set-option -sg escape-time        300
 set-option -g  focus-events       on
