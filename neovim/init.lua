@@ -1,6 +1,0 @@
-require('plugins')
-require('appearance')
-require('indentation')
-require('options')
-require('mappings')
-require('autocmd')
