@@ -22,3 +22,7 @@ noremap <Leader>f gggqG<C-o><C-o>
 
 packadd! termdebug
 let g:termdebug_wide = 1
+
+set directory=$HOME/.vimswap
+set backupdir=$HOME/.vimswap
+set undodir=$HOME/.vimswap
