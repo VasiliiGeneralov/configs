@@ -26,3 +26,8 @@ let g:termdebug_wide = 1
 set directory=$HOME/.vimswap
 set backupdir=$HOME/.vimswap
 set undodir=$HOME/.vimswap
+
+augroup filetype
+  au! BufRead,BufNewFile *.ll     set filetype=llvm
+  au! BufRead,BufNewFile *.td     set filetype=tablegen
+augroup END
