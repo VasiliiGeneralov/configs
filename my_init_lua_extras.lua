@@ -3,7 +3,7 @@ vim.pack.add({
   'https://github.com/nvim-treesitter/nvim-treesitter-context',
 })
 
-require{'nvim-treesitter'}.install {'c', 'cpp', 'python', 'json', }
+require('nvim-treesitter').install {'c', 'cpp', 'python', 'json', }
 
 vim.o.scrolloff = 0
 
