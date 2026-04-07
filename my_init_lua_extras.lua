@@ -1,25 +1,9 @@
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-  spec = {
-    {"neovim/nvim-lspconfig"}
-  }
+vim.pack.add({
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/nvim-treesitter/nvim-treesitter-context',
 })
+
+require{'nvim-treesitter'}.install {'c', 'cpp', 'python', 'json', }
 
 vim.o.scrolloff = 0
 
@@ -49,11 +33,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.keymap.set('i', '<Tab>', function()
+vim.keymap.set({'i'}, '<Tab>', function()
   return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
 end, { expr = true })
 
-vim.keymap.set('i', '<S-Tab>', function()
+vim.keymap.set({'i'}, '<S-Tab>', function()
   return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
 end, { expr = true })
 
@@ -62,3 +46,5 @@ vim.keymap.set({'n'}, '<Leader>e', vim.diagnostic.open_float)
 
 vim.lsp.enable("clangd")
 vim.lsp.enable("pylsp")
+
+vim.cmd('packadd! termdebug')
